@@ -4573,6 +4573,41 @@ function startMagicIntro() {
     // Guardar referencia global para usar en otros lugares
     window.musicPlayer = { audio, toggleMusic, isPlaying: () => isPlaying };
 })();
+
+
+const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+const mobileNav = document.getElementById("mobileNav");
+
+mobileMenuBtn.addEventListener("click", () => {
+  const isOpen = mobileNav.classList.toggle("open");
+
+  mobileMenuBtn.setAttribute("aria-expanded", String(isOpen));
+  mobileMenuBtn.setAttribute(
+    "aria-label",
+    isOpen ? "Close navigation menu" : "Open navigation menu"
+  );
+});
+
+document.addEventListener("click", (event) => {
+  if (
+    !mobileMenuBtn.contains(event.target) &&
+    !mobileNav.contains(event.target)
+  ) {
+    mobileNav.classList.remove("open");
+    mobileMenuBtn.setAttribute("aria-expanded", "false");
+    mobileMenuBtn.setAttribute("aria-label", "Open navigation menu");
+  }
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    mobileNav.classList.remove("open");
+    mobileMenuBtn.setAttribute("aria-expanded", "false");
+    mobileMenuBtn.focus();
+  }
+});
+
 </script>
+
 </body>
 </html>
