@@ -1523,6 +1523,59 @@ body.vr-active .carousel-btn {
   background: rgba(168, 85, 247, 0.18);
 }
 
+.mobile-menu-btn,
+.mobile-nav {
+  display: none;
+}
+
+@media (max-width: 850px) {
+  .mobile-menu-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    background: rgba(168, 85, 247, 0.12);
+    border: 1px solid rgba(168, 85, 247, 0.35);
+    border-radius: 8px;
+    color: #fff;
+    padding: 6px 10px;
+    font-size: 17px;
+    cursor: pointer;
+    touch-action: manipulation;
+  }
+
+  .mobile-nav.open {
+    display: flex;
+    position: fixed;
+    top: 56px;
+    left: 8px;
+    right: 8px;
+    z-index: 200;
+    flex-direction: column;
+    gap: 4px;
+    padding: 12px;
+    background: #101a30;
+    border: 1px solid rgba(168, 85, 247, 0.35);
+    border-radius: 12px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
+  }
+
+  .mobile-nav a {
+    display: block;
+    color: #e2e8f0;
+    text-decoration: none;
+    text-transform: none;
+    font-size: 13px;
+    letter-spacing: 0;
+    padding: 11px 14px;
+    border-radius: 8px;
+  }
+
+  .mobile-nav a:hover {
+    background: rgba(168, 85, 247, 0.15);
+  }
+}
+
 /* ===== PANTALLAS MEDIANAS ===== */
 
 @media (max-width: 1150px) {
@@ -1859,6 +1912,23 @@ body.vr-active .carousel-btn {
   <!-- ===== HEADER CON NOMBRE CLICKEABLE, SOCIAL ICONS, SUMMARY Y VR ===== -->
   <div class="title">
     <a href="#" class="name-link" id="cvLink">José Luis Romero Vázquez</a>
+    <button
+  class="mobile-menu-btn"
+  id="mobileMenuBtn"
+  type="button"
+  aria-label="Open navigation menu"
+  aria-expanded="false"
+  aria-controls="mobileNav">
+  ☰
+</button>
+
+<nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+  <a href="/">Home</a>
+  <a href="/about.html">About</a>
+  <a href="/research.html">Research</a>
+  <a href="/projects.html">Projects</a>
+  <a href="/contact.html">Contact</a>
+</nav>
     <nav class="portfolio-nav" aria-label="Main navigation">
   <a href="/">Home</a>
   <a href="/about.html">About</a>
